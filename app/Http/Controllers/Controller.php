@@ -79,4 +79,18 @@ class Controller extends BaseController
         $datas->delete();
         return redirect()->route('index');
     }
+
+    public function cari(Request $request)
+    {
+        $keywords = $request->search;
+        $datas = Category::where('name', 'like', "%" . $keywords . "%")->paginate(25);
+        return view('welcome', compact('datas'));
+    }
+
+    public function filter(Request $request)
+    {
+        $keywords = $request->search;
+        $datas = Category::where('is_publish', $keywords)->paginate(25);
+        return view('welcome', compact('datas'));
+    }
 }

@@ -1,19 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('v1/index', [CategoryController::class, 'index']);
+Route::post('v1/index/create', [CategoryController::class, 'store']);
+Route::post('v1/index/update/{id}', [CategoryController::class, 'update_']);
+Route::delete('v1/index/delete/{id}', [CategoryController::class, 'destroy']);

@@ -21,17 +21,18 @@
                     </li>
                 </ul>
 
-                <form class="form-inline my-2 my-lg-0">
-                    <select class="form-control" style="margin-right: 10px" name="" id="">
+                <form action="{{ route('filter_data') }}" class="form-inline my-2 my-lg-0">
+                    <select class="form-control" style="margin-right: 10px" name="search" id="">
                         <option selected>Pilih Kategori</option>
-                        <option value="0">Aktif</option>
-                        <option value="1">Tidak Aktif</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Tidak Aktif</option>
                     </select>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
                 </form>
 
-                <form class="form-inline my-2 my-lg-0" style="margin-left: 20px">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <form action="{{ route('cari_data') }}" class="form-inline my-2 my-lg-0" style="margin-left: 20px">
+                    <input name="search" class="form-control mr-sm-2" value="{{ old('search') }}" type="search"
+                        placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
